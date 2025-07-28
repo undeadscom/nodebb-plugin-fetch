@@ -1,0 +1,13 @@
+{
+  "name": "nodebb-plugin-fetch",
+  "version": "1.0.0",
+  "description": "Plugin for fetche on server side",
+  "main": "library.js",
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {},
+  "nbbpm": {
+    "compatibility": "^4.0.0"
+  }
+}

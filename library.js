@@ -1,0 +1,23 @@
+"use strict";
+
+const Plugin = {};
+
+Plugin.addExternalData = async function (data) {
+  console.log("fetched rates", Date.now());
+  try {
+    const response = await fetch(
+      "https://api-gateway.zombiesdev.com/rates/UDS/USD"
+    );
+    const json = await response.json();
+
+    data.templateValues = data.templateValues || {};
+    data.templateValues.externalRate = json.data.price;
+  } catch (err) {
+    console.error("[server-fetch] rates fetch error:", err);
+    data.templateValues.externalResult = {error: true};
+  }
+
+  return data;
+};
+
+module.exports = Plugin;

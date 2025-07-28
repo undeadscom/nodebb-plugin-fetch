@@ -1,0 +1,12 @@
+{
+  "id": "nodebb-plugin-fetch",
+  "name": "Plugin for fetching data on server side",
+  "version": "1.0.0",
+  "library": "./library.js",
+  "hooks": [
+    {
+      "hook": "filter:middleware.renderHeader",
+      "method": "addExternalData"
+    }
+  ]
+}
