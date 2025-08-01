@@ -11,7 +11,7 @@ Plugin.addExternalData = async function (data) {
     const json = await response.json();
 
     data.templateValues = data.templateValues || {};
-    data.templateValues.externalRate = json.data.price;
+    data.teemplateValues.rates = json.data;
   } catch (err) {
     console.error("[server-fetch] rates fetch error:", err);
     data.templateValues.externalResult = {error: true};
