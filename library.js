@@ -12,6 +12,12 @@ Plugin.addExternalData = async function (data) {
 
     data.templateValues = data.templateValues || {};
     data.templateValues.rates = json.data;
+
+    data.templateValues.rates.isPositivePercentageChange24h =
+      json.data.percentageChange24h >= 0;
+
+    data.templateValues.rates.percentageChange24h =
+      json.data.percentageChange24h.toFixed(2);
   } catch (err) {
     console.error("[server-fetch] rates fetch error:", err);
     data.templateValues.externalResult = {error: true};
