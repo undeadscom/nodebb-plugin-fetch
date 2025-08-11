@@ -1,5 +1,8 @@
 "use strict";
 
+const nconf = require("nconf");
+const apiData = nconf.get("api");
+
 const Plugin = {};
 
 Plugin.addExternalData = async function (data) {
@@ -58,9 +61,7 @@ Plugin.addExternalData = async function (data) {
 
   console.log("fetched rates", Date.now());
   try {
-    const response = await fetch(
-      "https://api-gateway.zombiesdev.com/rates/UDS/USD"
-    );
+    const response = await fetch(`${apiData.url}/rates/UDS/USD`);
     const json = await response.json();
 
     data.templateValues = data.templateValues || {};
