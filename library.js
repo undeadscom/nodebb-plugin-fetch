@@ -54,6 +54,12 @@ Plugin.addExternalData = async function (data) {
       description: "UDS / USDT",
       icon: "https://cdn.undeads.com/assets/forum/currencies-bar/uniswap.png",
     },
+    {
+      name: "PancakeSwap v3",
+      link: "https://dex.coinmarketcap.com/token/ethereum",
+      description: "UDS / USDT",
+      icon: "https://cdn.undeads.com/assets/forum/currencies-bar/pancakeswap.png",
+    },
   ];
 
   console.log("fetched rates", Date.now());
@@ -62,7 +68,6 @@ Plugin.addExternalData = async function (data) {
       "https://api-gateway.zombiesdev.com/rates/UDS/USD"
     );
     const json = await response.json();
-
     data.templateValues = data.templateValues || {};
     data.templateValues.rates = json.data;
 
@@ -73,7 +78,7 @@ Plugin.addExternalData = async function (data) {
       json.data.percentageChange24h.toFixed(2);
   } catch (err) {
     console.error("[server-fetch] rates fetch error:", err);
-    data.templateValues.externalResult = {error: true};
+    data.templateValues.externalResult = { error: true };
   }
 
   return data;
