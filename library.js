@@ -59,7 +59,7 @@ Plugin.addExternalData = async function (data) {
     },
   ];
 
-  console.log("fetched rates", Date.now());
+  console.log("fetched rates1", Date.now());
   try {
     const response = await fetch(`${apiData.url}/rates/UDS/USD`);
     const json = await response.json();
